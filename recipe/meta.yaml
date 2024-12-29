@@ -6,22 +6,23 @@ package:
   version: {{ version }}
 
 source:
-  url: https://pypi.org/packages/source/{{ name[0] }}/{{ name }}/{{ name.replace('-', '_') }}-{{ version }}.tar.gz
+  url: https://pypi.org/packages/source/{{ name[0] }}/{{ name }}/crispy_bootstrap5-{{ version }}.tar.gz
   sha256: 55b442fe675dd95ad280123c7fe464f454186e90b8e5642e751f436c87627c44
 
 build:
   noarch: python
-  script: {{ PYTHON }} -m pip install . -vv
+  script: {{ PYTHON }} -m pip install . -vv --no-deps --no-build-isolation
   number: 1
 
 requirements:
   host:
     - python {{ python_min }}
     - pip
+    - setuptools >61
   run:
     - python >={{ python_min }}
-    - django-crispy-forms >=1.13.0
-    - django >=3.2
+    - django-crispy-forms >=2.3.0
+    - django >=4.2
 
 test:
   imports:
