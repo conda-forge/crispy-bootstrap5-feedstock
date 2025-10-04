@@ -9,3 +9,5 @@ bot:
   inspection: update-grayskull
   check_solvable: true
   run_deps_from_wheel: true
+conda_install_tool: pixi
+conda_build_tool: rattler-build
