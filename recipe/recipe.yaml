@@ -1,8 +1,9 @@
+# yaml-language-server: $schema=https://raw.githubusercontent.com/prefix-dev/recipe-format/main/schema.json
 schema_version: 1
 
 context:
   name: crispy-bootstrap5
-  version: 2025.6
+  version: "2025.6"
 
 package:
   name: ${{ name|lower }}
@@ -23,7 +24,7 @@ requirements:
     - pip
     - setuptools >61
   run:
-    - python >=${{ python_min }}
+    - python >=${{ python_min }},<4.0
     - django-crispy-forms >=2.3
     - django >=4.2
     # - pytest-django
@@ -36,12 +37,7 @@ tests:
       imports:
         - crispy_bootstrap5
       python_version: ${{ python_min }}.*
-  - requirements:
-      run:
-        - pip
-        - python ${{ python_min }}.*
-    script:
-      - pip check
+      pip_check: true
 
 about:
   summary: Bootstrap5 template pack for django-crispy-forms
