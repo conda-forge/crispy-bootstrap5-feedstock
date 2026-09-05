@@ -3,7 +3,7 @@ schema_version: 1
 
 context:
   name: crispy-bootstrap5
-  version: "2026.3"
+  version: '2026.9'
 
 package:
   name: ${{ name|lower }}
@@ -11,7 +11,7 @@ package:
 
 source:
   url: https://pypi.org/packages/source/${{ name[0] }}/${{ name }}/crispy_bootstrap5-${{ version }}.tar.gz
-  sha256: e7f5adb36acfbb456444c46e82c436931c796c539e9c620be4fa9dc9c9d6679c
+  sha256: e574e6e910e97f5a32f5a18cc632d8bfd71cc4cb0f8fdd531e15f8618af2488b
 
 build:
   number: 0
@@ -26,12 +26,7 @@ requirements:
   run:
     - python >=${{ python_min }},<4.0
     - django-crispy-forms >=2.3
-    - django >=4.2
-    # - pytest-django
-    # - pytest
-    # - pytest-django
-    # - pytest
-
+    - django >=5.2
 tests:
   - python:
       imports:
